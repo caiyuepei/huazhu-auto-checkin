@@ -1,0 +1,17 @@
+name: 华住会每日签到
+
+on:
+  schedule:
+    - cron: '5 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 执行签到
+        env:
+          HZ_TOKEN: ${{ secrets.HZ_TOKEN }}
+          RANDOM_DELAY: 600
+        run: python3 checkin.py --once
