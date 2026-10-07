@@ -13,5 +13,7 @@ jobs:
       - name: 执行签到
         env:
           HZ_TOKEN: ${{ secrets.HZ_TOKEN }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          NOTIFY_ON: success
           RANDOM_DELAY: 600
         run: python3 checkin.py --once
