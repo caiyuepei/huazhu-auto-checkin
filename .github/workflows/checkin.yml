@@ -3,7 +3,7 @@ name: 华住会每日签到
 
 on:
   schedule:
-    - cron: '7 17 * * *'
+    - cron: '3 6 * * *'
   workflow_dispatch:
 
 
