@@ -1,9 +1,11 @@
 name: 华住会每日签到
 
+
 on:
   schedule:
     - cron: '7 17 * * *'
   workflow_dispatch:
+
 
 jobs:
   checkin:
@@ -13,5 +15,7 @@ jobs:
       - name: 执行签到
         env:
           HZ_TOKEN: ${{ secrets.HZ_TOKEN }}
-          RANDOM_DELAY: 600
+          RANDOM_DELAY: 1200
+          RETRY_TIMES: 6
+          RETRY_DELAY: 120
         run: python3 checkin.py --once
